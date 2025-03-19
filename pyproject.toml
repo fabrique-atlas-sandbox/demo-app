@@ -1,0 +1,27 @@
+[project]
+name = "demo-app"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Kévin Sztern", email = "contact@kevinsztern.fr" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi[standard]>=0.115.11",
+]
+
+
+[tool.poe.tasks]
+dev = "fastapi dev src/demo_app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "poethepoet>=0.33.1",
+    "pytest>=8.3.5",
+]

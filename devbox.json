@@ -1,0 +1,26 @@
+{
+    "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.14.0/.schema/devbox.schema.json",
+    "packages": [
+        "nodejs@latest",
+        "nodePackages.cdk8s-cli@latest",
+        "uv@latest",
+        "python@latest"
+    ],
+    "env": {
+        "UV_PYTHON": "$VENV_DIR/bin/python",
+        "DEVBOX_COREPACK_ENABLED": "true"
+    },
+    "shell": {
+        "init_hook": [],
+        "scripts": {
+            "test": [
+                "uv run pytest -v -s"
+            ],
+            "k8s": [
+                "cd deploy",
+                "npm install",
+                "cdk8s synth"
+            ]
+        }
+    }
+}
