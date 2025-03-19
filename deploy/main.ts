@@ -110,7 +110,7 @@ const app = new App({
 
 new AtlasApp(app, "dev", {
   name: "my-app",
-  host: "demo.org-fabrique-ws-test-dev.dev.atlas-sandbox.fabrique.social.gouv.fr",
+  host: "demo.org-dnum-ws-demo-hello-world.demo-1.atlas-sandbox.fabrique.social.gouv.fr",
   replicas: 1,
   port: 8000,
   image: imageTag,
@@ -118,7 +118,7 @@ new AtlasApp(app, "dev", {
 
 new AtlasApp(app, "prod", {
   name: "my-app",
-  host: "demo.org-fabrique-ws-test-prod.dev.atlas-sandbox.fabrique.social.gouv.fr",
+  host: "demo.org-dnum-ws-demo-prod.demo-1.atlas-sandbox.fabrique.social.gouv.fr",
   replicas: 3,
   port: 8000,
   image: imageTag,
