@@ -8,6 +8,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
+  GITOPS_REPO: fabrique-atlas-sandbox/org-dnum-ws-demo
 
 jobs:
   ci:
@@ -76,15 +77,15 @@ jobs:
       - name: Checkout GitOps repository
         uses: actions/checkout@v4
         with:
-          repository: fabrique-atlas-sandbox/org-fabrique-ws-test
-          path: gitops-dev
+          repository: ${{ env.GITOPS_REPO }}
+          path: gitops-repo
           ssh-key: ${{ secrets.GITOPS_REPO_KEY }}
 
       - run: |
-          rm -rf gitops-dev/deployment-targets/dev/*
-          cp -r deploy/dist/dev/* gitops-dev/deployment-targets/dev/
+          rm -rf gitops-repo/deployment-targets/dev/*
+          cp -r deploy/dist/dev/* gitops-repo/deployment-targets/dev/
 
-          cd gitops-dev
+          cd gitops-repo
           git config user.name "github-actions[bot]"
           # See https://api.github.com/users/github-actions%5Bbot%5D
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
